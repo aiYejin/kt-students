@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>앵그리버드 게임</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="ui">
+            <div class="score">점수: <span id="score">0</span></div>
+            <div class="stage">스테이지: <span id="stage">1</span></div>
+            <div class="stage-score">스테이지 점수: <span id="stage-score">0</span></div>
+            <div class="birds-left">남은 새: <span id="birds-left">3</span></div>
+            <button id="restart-btn" onclick="restartGame()">다시 시작</button>
+            <button onclick="showLeaderboard()">🏆 등수</button>
+        </div>
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div class="instructions">
+            <p>🎯 새를 드래그해서 날려보세요!</p>
+            <p>🏗️ 구조물을 모두 부수면 승리!</p>
+        </div>
+    </div>
+    
+    <!-- 점수 입력 모달 -->
+    <div id="scoreModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2>🎉 게임 종료!</h2>
+            <p>최종 점수: <span id="finalScore">0</span></p>
+            <div class="input-group">
+                <label for="playerName">이름을 입력하세요:</label>
+                <input type="text" id="playerName" maxlength="10" placeholder="이름">
+            </div>
+            <button onclick="saveScore()">점수 저장</button>
+        </div>
+    </div>
+    
+    <!-- 등수 모달 -->
+    <div id="leaderboardModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2>🏆 점수 등수</h2>
+            <div id="leaderboard"></div>
+            <button onclick="closeLeaderboard()">닫기</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html> 
